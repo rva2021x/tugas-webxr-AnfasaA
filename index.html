@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <title>testing aframe</title>
+</head>
+<body>
+    <a-scene>
+        <a-asset>
+            <img src="textures/metal.jpg" id="base">
+            <img id="sky" src="textures/Space.png">
+        </a-asset>
+        <a-plane 
+            src="#base" 
+            height="100"
+            width="100" 
+            repeat="50 50"
+            rotation="-90 0 0">
+        </a-plane>
+        <a-sphere
+            color="#3CF8EF"
+            radius="0.5"
+            position="0 1.5 -3"
+        ></a-sphere>
+        <a-sky src="#sky"></a-sky>
+    </a-scene>
+    
+</body>
+</html>
