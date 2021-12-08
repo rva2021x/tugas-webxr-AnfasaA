@@ -16,6 +16,7 @@
             <img id="logo2" src="assets/textures/Logo2.png">
             <img id="metal" src="assets/textures/metal.jpg">
             <img id="base" src="assets/textures/base.png">
+            <a-asset-item id="spaceship1" src="assets/models/spaceship1/scene.gltf"></a-asset-item>
         </a-asset>
         <a-circle 
             src="#metal"
@@ -83,6 +84,9 @@
             segments="500"
             material="side: double"
         ></a-circle>
+        <a-gltf-model
+            src="#spaceship1"
+        ></a-gltf-model>
         <a-sky src="#space"></a-sky>
     </a-scene>
 </body>
