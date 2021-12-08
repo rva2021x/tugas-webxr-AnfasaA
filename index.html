@@ -19,72 +19,12 @@
             <a-asset-item id="cockpit" src="assets/models/cockpit/scene.gltf"></a-asset-item>
             <a-asset-item id="spaceship1" src="assets/models/spaceship1/scene.gltf"></a-asset-item>
             <a-asset-item id="spaceship2" src="assets/models/spaceship2/scene.gltf"></a-asset-item>
+            <a-asset-item id="spaceship3" src="assets/models/spaceship3/scene.gltf"></a-asset-item>
         </a-asset>
         <a-entity movement-controls="fly: true" position="0 0 2">
             <a-entity camera position="0 1.6 0" look-controls></a-entity>
             <a-entity cursor="rayOrigin:mouse"></a-entity>
         </a-entity>
-        <!-- <a-circle 
-            src="#metal"
-            rotation="-90 0 0"
-            radius="2"
-            segments="500"
-        ></a-circle>
-        <a-entity 
-            geometry="primitive: cylinder; openEnded: true; thetaLength: 180; radius: 2; height: 4;"
-            position="0 2 0"
-            rotation="0 -90 0"
-            material="side: double; src:#base;">
-        </a-entity>
-        <a-entity 
-            geometry="primitive: cylinder; openEnded: false; thetaLength: 180; radius: 2; height: 0.4;"
-            position="0 0.25 0"
-            rotation="0 90 0"
-            material="side: double; color:#302E2F;">
-        </a-entity>
-        <a-plane
-            position="0 -0.05 0"
-            width="4"
-            src="#base"
-            rotation="0 0 0"
-            ></a-plane>
-        <a-entity 
-            geometry="primitive: cylinder; openEnded: false; thetaLength: 180; radius: 2; height: 0.4;"
-            position="0 3.8 0"
-            rotation="0 90 0"
-            material="side: double; color:#302E2F;">
-        </a-entity>
-        <a-plane
-            position="0 4.1 0"
-            width="4"
-            src="#base"
-            rotation="0 0 0"
-            ></a-plane>
-        <a-circle 
-            src="#metal"
-            position="0 4 0"
-            rotation="-90 0 0"
-            radius="2"
-            segments="500"
-            material="side: double"
-        ></a-circle>
-        <a-circle 
-            src="#logo2"
-            position="0 0.4505 0"
-            rotation="-90 0 0"
-            radius="2"
-            theta-length="180"
-            segments="500"
-        ></a-circle>
-        <a-circle 
-            src="#logo"
-            position="0 3.595 0"
-            rotation="-90 0 0"
-            radius="2"
-            theta-length="180"
-            segments="500"
-            material="side: double"
-        ></a-circle> -->
         <a-gltf-model
             src="#cockpit"
             rotation="0 180 0"
@@ -95,6 +35,12 @@
             scale="0.005 0.005 0.005"
             position="0 -5 -10"
             rotation="0 -90 0"
+            sound="
+                src:assets/sound/gunshot.mp3;
+                on: click;
+                poolSize: 10;
+                position: 0 1.3 -0.5;
+            "
             animation="
             property: position;
             from: 0 -20 -30;
@@ -179,6 +125,12 @@
             position="20 -20 10"
             rotation="0 -45 0"
             scale="0.18 0.18 0.18"
+            sound="
+            src:assets/sound/gunshot.mp3;
+            on: click;
+            poolSize: 10;
+            position: 0 1.3 -0.5;
+        "
             animation="
             property: position;
             to: 9 1 -10;
@@ -262,6 +214,102 @@
             loop: true;
             startEvents: click;
             delay: 9000;"
+        ></a-gltf-model>
+        <a-gltf-model
+            src="#spaceship3"
+            position="-12 1 -12"
+            rotation="0 -45 0"
+            scale="0.35 0.35 0.35"
+            sound="
+            src:assets/sound/gunshot.mp3;
+            on: click;
+            poolSize: 10;
+            position: 0 1.3 -0.5;
+            "
+            animation="
+            property: position;
+            from: -25 -20 -25;
+            to: -12 1 -12;
+            dur: 3500;
+            delay: 2000;
+            easing: easeInOutCubic;
+            "
+            animation__rot="
+            property: rotation;
+            from: -45 -45 -15;
+            to: 0 -45 0;
+            dur: 5000;
+            delay: 2000;
+            easing: easeInOutCubic;
+            "
+            animation__idle="
+            property: position;
+            from: -12 1 -12;
+            to: -12 1.3 -12;
+            delay: 6500;
+            dur: 2500;
+            dir: alternate;
+            easing: easeInOutCubic;
+            loop: true;"
+            animation__idlerot="
+            property: rotation;
+            from: 0 -45 0;
+            to: 0 -45 -5;
+            delay: 6500;
+            dur: 2500;
+            dir: alternate;
+            easing: easeInOutCubic;
+            loop: true;"
+            animation__fall="
+            property: position;
+            to: 20 -20 0;
+            dir: alternate;
+            dur: 2800;
+            easing: easeInOutCubic;
+            startEvents: click;"
+            animation__fallrot="
+            property: rotation;
+            to: -270 0 0;
+            dir: alternate;
+            dur: 1500;
+            easing: easeInOutCubic;
+            startEvents: click;"
+            animation__afterfallup="
+            property: position;
+            from: -25 -20 -25;
+            to: -12 1 -12;
+            dur: 3500;
+            easing: easeInOutCubic;
+            startEvents: click;
+            delay: 5500;"
+            animation__afterrfallfront="
+            property: rotation;
+            from: -45 -45 -15;
+            to: 0 -45 0;
+            dur: 5000;
+            easing: easeInOutCubic;
+            startEvents: click;
+            delay: 5500;"
+            animation__afterfallidle="
+            property: position;
+            from: -12 1 -12;
+            to: -12 1.3 -12;
+            dur: 2500;
+            dir: alternate;
+            easing: easeInOutCubic;
+            loop: true;
+            startEvents: click;
+            delay: 10000;"
+            animation__afterfallidlerot="
+            property: rotation;
+            from: 0 -45 0;
+            to: 0 -45 -5;
+            dur: 2500;
+            dir: alternate;
+            easing: easeInOutCubic;
+            loop: true;
+            startEvents: click;
+            delay: 10000;"
         ></a-gltf-model>
         <a-sky src="#space"></a-sky>
     </a-scene>
