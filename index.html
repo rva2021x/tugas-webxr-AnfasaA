@@ -17,7 +17,12 @@
             <img id="metal" src="assets/textures/metal.jpg">
             <img id="base" src="assets/textures/base.png">
             <a-asset-item id="spaceship1" src="assets/models/spaceship1/scene.gltf"></a-asset-item>
+            <a-asset-item id="spaceship2" src="assets/models/spaceship2/scene.gltf"></a-asset-item>
         </a-asset>
+        <!-- <a-entity movement-controls="fly: true" position="0 0 1.5"> -->
+            <!-- <a-entity camera position="0 1.6 0" look-controls></a-entity> -->
+            <!-- <a-entity cursor="rayOrigin:mouse"></a-entity> -->
+        <!-- </a-entity> -->
         <a-circle 
             src="#metal"
             rotation="-90 0 0"
@@ -89,8 +94,7 @@
             from: 0 -20 -30;
             to: 0 1.5 -10;
             dur: 1500;
-            easing: easeOutCubic;
-            "
+            easing: easeOutCubic;"
             animation__rotation="
             property: rotation;
             from: 0 -90 -45;
@@ -104,8 +108,7 @@
             delay: 2100;
             loop: true;
             dir: alternate;
-            easing: easeInOutCubic;
-            "
+            easing: easeInOutCubic;"
             animation__idlerot="
             property:rotation;
             from: -5 -90 0;
@@ -115,6 +118,96 @@
             dir: alternate;
             dur: 1500;
             easing: easeInOutCubic;"
+            animation__fall="
+            property:position;
+            to: 0 -20 0;
+            dir: alternate;
+            dur: 3000;
+            easing: easeInOutCubic;
+            startEvents: click;"
+            animation__fallrot="
+            property:rotation;
+            to: 45 180 0;
+            dir: alternate;
+            dur: 1500;
+            easing: easeInOutCubic;
+            startEvents: click;"
+            animation__afterfallup="
+            property: position;
+            from: 0 -20 -30;
+            to: 0 1.5 -10;
+            dur: 1500;
+            easing: easeOutCubic;
+            startEvents: click;
+            delay: 1000;"
+            animation__afterrfallfront="
+            property: rotation;
+            from: 0 -90 -45;
+            to: -5 -90 0;
+            dur: 1500;
+            startEvents: click;
+            delay: 1000;"
+            animation__afterfallidle="
+            property:position;
+            from: 0 1.5 -10;
+            to: 1 1.5 -10;
+            dur: 1500;
+            delay: 2100;
+            loop: true;
+            dir: alternate;
+            easing: easeInOutCubic;
+            startEvents: click;
+            delay: 2500;"
+            animation__afterfallidlerot="
+            property:rotation;
+            from: -5 -90 0;
+            to: 5 -90 0;
+            delay: 2100;
+            loop: true;
+            dir: alternate;
+            dur: 1500;
+            easing: easeInOutCubic;
+            startEvents: click;
+            delay: 2500;"
+        ></a-gltf-model>
+        <a-gltf-model
+            src="#spaceship2"
+            position="20 -20 10"
+            rotation="0 -45 0"
+            scale="0.18 0.18 0.18"
+            animation="
+            property: position;
+            to: 9 1 -10;
+            dur: 3500;
+            delay: 1000;
+            easing: easeInOutCubic;
+            "
+            animation__rot="
+            property: rotation;
+            from: 0 -45 45;
+            to: 0 -45 0;
+            dur: 5000;
+            delay: 1000;
+            easing: easeInOutCubic;
+            "
+            animation__idle="
+            property: position;
+            from: 9 1 -10;
+            to: 9 1.3 -10;
+            delay: 5500;
+            dur: 2500;
+            dir: alternate;
+            easing: easeInOutCubic;
+            loop: true;"
+            animation__idlerot="
+            property: rotation;
+            from: 0 -45 0;
+            to: 5 -45 0;
+            delay: 5500;
+            dur: 2500;
+            dir: alternate;
+            easing: easeInOutCubic;
+            loop: true;"
         ></a-gltf-model>
         <a-sky src="#space"></a-sky>
     </a-scene>
