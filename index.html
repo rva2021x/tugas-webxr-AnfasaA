@@ -22,10 +22,10 @@
             <a-asset-item id="spaceship3" src="assets/models/spaceship3/scene.gltf"></a-asset-item>
             <a-asset-item id="spaceship4" src="assets/models/spaceship4/scene.gltf"></a-asset-item>
         </a-asset>
-        <!-- <a-entity movement-controls="fly: true" position="0 0 2">
+        <a-entity movement-controls="fly: true" position="0 0 2">
             <a-entity camera position="0 1.6 0" look-controls></a-entity>
             <a-entity cursor="rayOrigin:mouse"></a-entity>
-        </a-entity> -->
+        </a-entity>
         <a-gltf-model
             src="#cockpit"
             rotation="0 180 0"
@@ -41,6 +41,7 @@
                 on: click;
                 poolSize: 10;
                 position: 0 1.3 -0.5;
+                volume: 10;
             "
             animation="
             property: position;
@@ -131,6 +132,7 @@
             on: click;
             poolSize: 10;
             position: 0 1.3 -0.5;
+            volume: 15;
         "
             animation="
             property: position;
@@ -226,6 +228,7 @@
             on: click;
             poolSize: 10;
             position: 0 1.3 -0.5;
+            volume: 15;
             "
             animation="
             property: position;
@@ -317,6 +320,13 @@
             position="0 400 -500"
             scale="0.3 0.3 0.3"
             rotation="15 0 0"
+            sound="
+            src:assets/sound/gunshot.mp3;
+            on: click;
+            poolSize: 10;
+            position: 0 1.3 -0.5;
+            volume: 20;
+            "
             animation="
             property: position;
             to: 0 40 -50;
@@ -360,6 +370,74 @@
             loop: true;
             dir: alternate;
             easing: easeInOutCubic;"
+            animation__fall="
+            property: position;
+            to: -30 -50 -80;
+            dir: alternate;
+            dur: 1800;
+            easing: easeInOutCubic;
+            startEvents: click;"
+            animation__fallrot="
+            property: rotation;
+            to: -60 -90 90;
+            dir: alternate;
+            dur: 2800;
+            easing: easeInOutCubic;
+            startEvents: click;"
+            animation__afterfallup="
+            property: position;
+            from: 0 400 -500;
+            to: 0 40 -50;
+            dur: 5000;
+            easing: easeInOutCubic;
+            startEvents: click;
+            delay: 4500;"
+            animation__afterrfallfront="
+            property: rotation;
+            from: 65 0 0;
+            to: -1 0 0;
+            dur: 5500;
+            easing: easeInOutCubic;
+            startEvents: click;
+            delay: 4500;"
+            animation__afterfallup2="
+            property: position;
+            from: 0 40 -50;
+            to: 0 20 -35;
+            dur: 2000;
+            easing: easeInOutCubic;
+            startEvents: click;
+            delay: 9500;"
+            animation__afterrfallfront2="
+            property:rotation;
+            from: -1 0 0;
+            to: 15 0 0;
+            dur: 2000;
+            easing: easeInOutCubic;
+            startEvents: click;
+            delay: 9500;"
+            animation__afterfallidle="
+            property: position;
+            from: 0 20 -35;
+            to: 0 22 -35;
+            delay: 7500;
+            dur: 2000;
+            loop: true;
+            dir: alternate;
+            easing: easeInOutCubic;
+            startEvents: click;
+            delay: 11800;"
+            animation__afterfallidlerot="
+            property: rotation;
+            from: 15 0 0;
+            to: 20 0 0;
+            dur: 2000;
+            delay: 7500;
+            loop: true;
+            dir: alternate;
+            easing: easeInOutCubic;
+            startEvents: click;
+            delay: 11800;"
         ></a-gltf-model>
         <a-sky src="#space"></a-sky>
     </a-scene>
