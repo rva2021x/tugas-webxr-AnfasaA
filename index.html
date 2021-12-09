@@ -16,6 +16,7 @@
             <img id="logo2" src="assets/textures/Logo2.png">
             <img id="metal" src="assets/textures/metal.jpg">
             <img id="base" src="assets/textures/base.png">
+            <img id="pic" src="assets/textures/picture.jpg">
             <a-asset-item id="cockpit" src="assets/models/cockpit/scene.gltf"></a-asset-item>
             <a-asset-item id="spaceship1" src="assets/models/spaceship1/scene.gltf"></a-asset-item>
             <a-asset-item id="spaceship2" src="assets/models/spaceship2/scene.gltf"></a-asset-item>
@@ -25,7 +26,18 @@
         <a-entity movement-controls="fly: true" position="0 0 2">
             <a-entity camera position="0 1.6 0" look-controls></a-entity>
             <a-entity cursor="rayOrigin:mouse"></a-entity>
+            <a-entity laser-controls="hand: left"></a-entity>
+            <a-entity laser-controls="hand: right"></a-entity>
         </a-entity>
+        <a-plane 
+            color="#CCC" 
+            height="0.3" 
+            width="0.6" 
+            position="1.15 0.35 1.9"
+            rotation="55 90 0"
+            side="double"
+            src="#pic"
+        ></a-plane>
         <a-gltf-model
             src="#cockpit"
             rotation="0 180 0"
